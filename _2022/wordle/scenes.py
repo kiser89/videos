@@ -1,6 +1,16 @@
-from manim_imports_ext import *
-from _2022.wordle.simulations import *
+#from manim_imports_ext import *
+from manim import *
+from numpy import *
 
+import os
+import sys
+
+print (sys.path)
+fpath = 'C:\\Users\\kiser\\Documents\\Coding\\Repos\\videos\\_2022\\wordle'
+sys.path.append(fpath)
+print (sys.path)
+
+from simulations import *
 
 # Scene types
 

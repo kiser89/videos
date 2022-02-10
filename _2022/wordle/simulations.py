@@ -1,7 +1,7 @@
 from manim_imports_ext import *
 from tqdm import tqdm as ProgressDisplay
 from scipy.stats import entropy
-
+#import math
 
 MISS = np.uint8(0)
 MISPLACED = np.uint8(1)
@@ -179,11 +179,11 @@ def generate_full_pattern_matrix():
 def get_pattern_matrix(words1, words2):
     if not PATTERN_GRID_DATA:
         if not os.path.exists(PATTERN_MATRIX_FILE):
-            log.info("\n".join([
-                "Generating pattern matrix. This takes a minute, but",
-                "the result will be saved to file so that it only",
-                "needs to be computed once.",
-            ]))
+            #log.info("\n".join([
+            #    "Generating pattern matrix. This takes a minute, but",
+            #    "the result will be saved to file so that it only",
+            #    "needs to be computed once.",
+            #]))
             generate_full_pattern_matrix()
         PATTERN_GRID_DATA['grid'] = np.load(PATTERN_MATRIX_FILE)
         PATTERN_GRID_DATA['words_to_index'] = dict(zip(
@@ -679,8 +679,7 @@ def simulate_games(first_guess=None,
 
     if first_guess is None:
         first_guess = optimal_guess(
-            all_words, all_words, priors,
-            **choice_config
+            all_words, all_words, priors
         )
 
     if priors is None:
